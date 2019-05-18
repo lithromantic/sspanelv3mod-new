@@ -17,3 +17,5 @@ storage
 .user.ini
 .htaccess
 php_errors.log
+public/wiki1/
+public/wiki/

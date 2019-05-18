@@ -11,8 +11,8 @@ class flyfoxpay extends AbstractPayment
     {
         $type = $request->getParam('type');
         $price = $request->getParam('price');
-        if($price <= 0){
-            return json_encode(['errcode'=>-1,'errmsg'=>"非法的金额."]);
+        if($price < 10){
+            return json_encode(['errcode'=>-1,'errmsg'=>"支付网关要求最低充值10元起！"]);
         }
         $user = Auth::getUser();
         $settings = Config::get("flyfoxpay")['config'];
