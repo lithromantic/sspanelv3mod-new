@@ -1103,6 +1103,12 @@ class UserController extends BaseController
             $res['ret'] = -1;
             return $response->getBody()->write(json_encode($res));
         }
+      /* 添加流量包提示*/
+      	if ($user->class == 0 && $shop->id == 7) {
+         	 $res['ret'] = 0;
+             $res['msg'] = "此流量包仅限Lv0以上用户购买";
+                return $response->getBody()->write(json_encode($res));
+        }
 
         if (bccomp($user->money, $price, 2) == -1) {
             $res['ret'] = 0;
