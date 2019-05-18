@@ -196,10 +196,11 @@
 												<li {if !$ssr_prefer}class="active"{/if}>
 													<a class="" data-toggle="tab" href="#all_ss"><i class="icon icon-lg">flight_takeoff</i>&nbsp;SS/SSD</a>
 												</li>
-
+<!--暂时disable v2ray
 												<li>
 													<a class="" data-toggle="tab" href="#all_v2ray"><i class="icon icon-lg">flight_land</i>&nbsp;V2RAY</a>
 												</li>
+-->												
 											</ul>
 										</nav>
 										<div class="card-inner">
@@ -570,6 +571,7 @@
 														</div>
 													</div>
 												</div>
+
 											</div>
 										</div>
 

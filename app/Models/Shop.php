@@ -221,8 +221,9 @@ class Shop extends Model
                         $user->class_expire = date("Y-m-d H:i:s", time() + $content["class_expire"] * 86400);
                         break;
                     }
+                //写死速度限制，需要debug
                 case "speedlimit":
-                    $user->node_speedlimit = $value;
+                    $user->node_speedlimit = 0;
                     break;
                 case "connector":
                     $user->node_connector = $value;
