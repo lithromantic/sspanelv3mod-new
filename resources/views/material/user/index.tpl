@@ -171,6 +171,23 @@
 											<div class="card-heading"><i class="icon icon-md">phonelink</i> 快速添加节点</div>
 											<div class="reset-flex"><span>重置订阅链接</span><a class="reset-link btn btn-brand-accent btn-flat" ><i class="icon">autorenew</i>&nbsp;</a></div>
 									</div>
+                                      <!--重置订阅确认对话框-->
+                                      <div aria-hidden="true" class="modal modal-va-middle fade" id="resetconfirm_modal" role="dialog" tabindex="-1">
+                                          <div class="modal-dialog modal-xs">
+                                              <div class="modal-content">
+                                                  <div class="modal-heading">
+                                                      <a class="modal-close" data-dismiss="modal">×</a>
+                                                      <h2 class="modal-title">确认要重置订阅？</h2>
+                                                  </div>
+                                                  <div class="modal-inner">
+                                                      <p>原有链接将会失效！请您确认。</p>
+                                                  </div>
+                                                  <div class="modal-footer">
+                                                      <p class="text-right"><button class="btn btn-flat btn-brand-accent waves-attach waves-effect" data-dismiss="modal" type="button">取消</button><button class="btn btn-flat btn-brand-accent waves-attach" data-dismiss="modal" id="resetconfirm_input" type="button">确定</button></p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
 										<nav class="tab-nav margin-top-no">
 											<ul class="nav nav-list">
 												<li {if $ssr_prefer}class="active"{/if}>
@@ -825,9 +842,13 @@ $(function(){
 });
 
 $(".reset-link").click(function () {
-	$("#result").modal();
-	$("#msg").html("已重置您的订阅链接，请变更或添加您的订阅链接！");
-	window.setTimeout("location.href='/user/url_reset'", {$config['jump_delay']});
+	$("#resetconfirm_modal").modal();
+});
+  
+$("#resetconfirm_input").click(function(){
+   $("#result").modal();
+   $("#msg").html("已重置您的订阅链接，请变更或添加您的订阅链接！");
+   window.setTimeout("location.href='/user/url_reset'", 1200);
 });
 
  {if $user->transfer_enable-($user->u+$user->d) == 0}
