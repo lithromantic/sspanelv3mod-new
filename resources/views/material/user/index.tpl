@@ -25,8 +25,10 @@
 												<div class="nodetype">
 													{if $user->class!=0}
 													<dd>VIP {$user->class}</dd>
-													{else}
-													<dd>普通用户</dd>
+													{elseif strtotime($user->reg_date) > time()-86400*3}
+                                                     <dd>试用用户</dd>
+                                              		{else}
+													<dd>过期用户</dd>
 													{/if}
 												</div>
 											</div>
