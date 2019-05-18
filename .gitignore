@@ -12,6 +12,7 @@ storage/trimepay_notify.log
 storage/traffic_notified/
 .idea
 storage/qqwry.*
+storage
 .vs/
 .htaccess
 php_errors.log
